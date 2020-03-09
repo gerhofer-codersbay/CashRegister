@@ -20,7 +20,8 @@ public class CashRegister {
     }
 
     public void removeProduct(String barCode) {
-        // TODO
+        Product product = scanner.readCode(barCode);
+        currentlyScannedProducts.remove(product);
     }
 
     public Invoice generateInvoice() {
@@ -29,6 +30,7 @@ public class CashRegister {
                 7,
                 currentlyScannedProducts
         );
+        currentlyScannedProducts.clear();
         return invoice;
     }
 
